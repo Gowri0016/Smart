@@ -4,8 +4,20 @@ import { FaRocket, FaHandshake, FaGlobeAsia } from 'react-icons/fa';
 
 export default function About() {
   return (
-    <section className="bg-gradient-to-br from-yellow-100 via-orange-50 to-white mt-16 py-20 px-6">
-      <div className="max-w-6xl mx-auto">
+    <section className="bg-gradient-to-br from-cyan-500 via-sky-800 to-cyan-500 mt-16 py-20 px-6 relative overflow-hidden">
+      {/* Background Texture */}
+      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/asfalt-dark.png')] opacity-10 z-0 pointer-events-none" />
+
+      {/* Top Angled Cut */}
+      <div className="absolute -top-16 left-0 w-full h-20 bg-white opacity-10 transform -skew-y-6 z-0" />
+
+      {/* Main Content */}
+      <motion.div
+        initial={{ opacity: 0, y: 60 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+        className="relative z-10 max-w-6xl mx-auto px-6 py-24"
+      >
         {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: -30 }}
@@ -13,8 +25,8 @@ export default function About() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-orange-800">About Arivu Kalam</h2>
-          <p className="mt-4 text-gray-700 text-lg max-w-2xl mx-auto">
+          <h2 className="text-4xl font-bold text-white">About Arivu Kalam</h2>
+          <p className="mt-4 text-white text-lg max-w-2xl mx-auto">
             Arivu Kalam is more than a place — it's a movement for innovation, creativity, and community-led learning.
           </p>
         </motion.div>
@@ -64,7 +76,7 @@ export default function About() {
           </blockquote>
           <p className="mt-4 text-sm">— Founders of Arivu Kalam</p>
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 }

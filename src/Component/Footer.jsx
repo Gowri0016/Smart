@@ -4,10 +4,25 @@ import { FaFacebook, FaInstagram, FaTwitter, FaLinkedin } from 'react-icons/fa';
 
 export default function Footer() {
   return (
-    <footer className="relative bg-gradient-to-br from-orange-900 via-yellow-800 to-yellow-600 text-white overflow-hidden">
-      {/* Background Effects */}
-      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/asfalt-dark.png')] opacity-10 z-0 pointer-events-none" />
-
+    <footer className="relative bg-gradient-to-br from-cyan-500 via-sky-800 to-blue-500 text-white overflow-hidden">
+    {/* Gradient Background */}
+            <div className="absolute inset-0 bg-gradient-to-br from-cyan-500 via-sky-800 to-blue-500 z-0"></div>
+      
+            {/* Animated 3D Morphing Blobs */}
+            <motion.div
+              className="absolute top-[-150px] left-[-150px] w-[500px] h-[500px] bg-blue-600 rounded-full filter blur-3xl opacity-40 z-0"
+              animate={{
+                borderRadius: ["50%", "45% 55% 50% 50%", "50%"],
+                x: [0, 100, -100, 0],
+                y: [0, 60, -60, 0],
+                rotate: [0, 360],
+              }}
+              transition={{
+                duration: 20,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
       {/* Top Angled Cut */}
       <div className="absolute -top-16 left-0 w-full h-20 bg-white opacity-10 transform -skew-y-6 z-0" />
 

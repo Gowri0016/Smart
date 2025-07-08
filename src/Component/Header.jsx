@@ -13,25 +13,31 @@ export default function Header() {
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center space-x-8 font-medium text-sm">
-          {/* Unique Dropdown */}
-          <div className="relative group">
-            <a href="/about" className="flex items-center gap-1 hover:text-orange-600 transition-colors duration-200">
-              About Us <FaCaretDown className="text-xs mt-1" />
-            </a>
-            <AnimatePresence>
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95, y: -10 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95, y: -10 }}
-                transition={{ duration: 0.25 }}
-                className="absolute hidden group-hover:flex flex-col bg-white border border-orange-100 shadow-xl rounded-xl mt-2 py-3 px-4 space-y-2 z-20 w-48"
-              >
-                <a href="/our-story" className="hover:text-orange-600 transition-colors">Our Story</a>
-                <a href="/ourteam" className="hover:text-orange-600 transition-colors">Our Team</a>
-                <a href="/our-process" className="hover:text-orange-600 transition-colors">Our Process</a>
-              </motion.div>
-            </AnimatePresence>
-          </div>
+     {/* Unique Dropdown */}
+<div className="relative group">
+  <a
+    href="/about"
+    className="flex items-center gap-1 font-medium hover:text-blue-600 transition-colors duration-200 relative"
+  >
+    About Us
+    <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-blue-400 transition-all duration-300 group-hover:w-full"></span>
+    <FaCaretDown className="text-xs mt-1" />
+  </a>
+
+  <AnimatePresence>
+    <motion.div
+      initial={{ opacity: 0, scale: 0.8, y: -10 }}
+      animate={{ opacity: 1, scale: 1, y: 0 }}
+      exit={{ opacity: 0, scale: 0.8, y: -10 }}
+      transition={{ duration: 0.3 }}
+      className="absolute hidden group-hover:flex flex-col bg-white/20 backdrop-blur-md border border-orange-200/30 shadow-xl rounded-2xl mt-2 py-3 px-4 space-y-2 z-20 w-52"
+    >
+      <a href="/ourteam" className="text-black hover:text-blue-600 transition-colors">Our Team</a>
+      <a href="/intro" className="text-black hover:text-blue-600 transition-colors">Our Vision & Mission</a>
+    </motion.div>
+  </AnimatePresence>
+</div>
+
 
           {/* Main Links */}
           {[
@@ -42,10 +48,10 @@ export default function Header() {
             <a
               key={i}
               href={href}
-              className="relative group hover:text-orange-600 transition"
+              className="relative group hover:text-blue-600 transition"
             >
               {label}
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-600 transition-all group-hover:w-full"></span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-blue-600 transition-all group-hover:w-full"></span>
             </a>
           ))}
 
@@ -54,7 +60,7 @@ export default function Header() {
             href="/enquiry"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="ml-4 bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-lg shadow transition"
+            className="ml-4 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg shadow transition"
           >
             Have a Question?
           </motion.a>
@@ -87,11 +93,10 @@ export default function Header() {
           >
             {/* Dropdown (static on mobile) */}
             <div className="space-y-1">
-              <p className="font-semibold text-orange-700">About Us</p>
+              <p className="font-semibold text-blue-600">About Us</p>
               <div className="ml-4 space-y-1 text-sm">
-                <a href="/our-story" className="block">Our Story</a>
+                <a href="/intro" className="block">Our Vision & Mission</a>
                 <a href="/ourteam" className="block">Our Team</a>
-                <a href="/our-process" className="block">Our Process</a>
               </div>
             </div>
 
@@ -103,7 +108,7 @@ export default function Header() {
             {/* CTA */}
             <a
               href="/enquiry"
-              className="block mt-4 bg-orange-600 text-white text-center py-2 rounded-md font-medium hover:bg-orange-700 transition"
+              className="block mt-4 bg-blue-600 text-white text-center py-2 rounded-md font-medium hover:bg-blue-700 transition"
             >
               Have a Question?
             </a>
