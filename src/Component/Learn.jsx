@@ -34,35 +34,37 @@ const upcomingEvents = [
 
 export default function Learn() {
   return (
-    <section className="bg-gradient-to-br from-orange-50 via-yellow-100 to-white mt-24 px-6 py-20">
+    <section className="bg-gradient-to-br from-cyan-500 via-sky-800 to-cyan-500 mt-24 px-6 py-20">
       <div className="max-w-6xl mx-auto text-center">
         {/* Heading */}
         <motion.h2
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-4xl font-bold text-orange-800 mb-6"
+          transition={{ duration: 0.7 }}
+          className="text-4xl font-extrabold text-white mb-6 tracking-wide"
         >
           Learn with Purpose
         </motion.h2>
-        <p className="text-gray-600 text-base md:text-lg max-w-2xl mx-auto mb-14">
+        <p className="text-gray-100 text-base md:text-lg max-w-2xl mx-auto mb-14 leading-relaxed">
           Empowering curiosity through practical knowledge and immersive learning experiences.
         </p>
 
         {/* Animated Learning Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
           {learnTopics.map((topic, index) => (
             <motion.div
               key={index}
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.06 }}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4, delay: index * 0.2 }}
-              className="bg-white rounded-xl shadow-lg p-6 hover:shadow-xl transition-all"
+              transition={{ duration: 0.5, delay: index * 0.2 }}
+              className="bg-white/20 backdrop-blur-xl border border-white/30 rounded-2xl shadow-xl p-8 transition-all cursor-pointer"
             >
-              <div className="text-3xl text-orange-500 mb-4">{topic.icon}</div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-2">{topic.title}</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">{topic.description}</p>
+              <div className="flex items-center justify-center w-16 h-16 mx-auto rounded-full bg-gradient-to-br from-cyan-500 via-sky-800 to-cyan-500 text-white text-3xl mb-5 shadow-lg">
+                {topic.icon}
+              </div>
+              <h3 className="text-lg font-bold text-white mb-3">{topic.title}</h3>
+              <p className="text-gray-200 text-sm">{topic.description}</p>
             </motion.div>
           ))}
         </div>
@@ -71,23 +73,26 @@ export default function Learn() {
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6 }}
-          className="bg-white/80 backdrop-blur-md rounded-xl shadow-md p-8 max-w-4xl mx-auto"
+          transition={{ duration: 0.7 }}
+          className="bg-white/10 border border-white/30 backdrop-blur-2xl rounded-2xl shadow-2xl p-10 max-w-4xl mx-auto"
         >
-          <div className="flex items-center justify-center gap-3 text-orange-800 mb-6">
-            <FaCalendarAlt className="text-2xl" />
-            <h3 className="text-2xl font-bold">Upcoming Learning Events</h3>
+          <div className="flex items-center justify-center gap-4 text-white mb-8">
+            <FaCalendarAlt className="text-3xl" />
+            <h3 className="text-2xl font-extrabold tracking-wide">Upcoming Learning Events</h3>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
+          <div className="flex flex-col gap-6">
             {upcomingEvents.map((event, i) => (
               <motion.div
                 key={i}
-                whileHover={{ y: -4 }}
-                className="border-l-4 border-orange-400 pl-4 text-left bg-white rounded-md shadow-sm p-4"
+                whileHover={{ scale: 1.02 }}
+                className="flex items-start gap-4 text-left"
               >
-                <p className="text-sm text-gray-500">{event.date}</p>
-                <h4 className="font-semibold text-gray-800">{event.title}</h4>
+                <div className="w-4 h-4 mt-1 rounded-full bg-blue-200 shadow-md" />
+                <div className="bg-white/30 backdrop-blur-md border border-white/20 rounded-lg p-4 flex-1 shadow-md">
+                  <p className="text-xs text-gray-200 mb-1">{event.date}</p>
+                  <h4 className="font-semibold text-white">{event.title}</h4>
+                </div>
               </motion.div>
             ))}
           </div>

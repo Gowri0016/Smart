@@ -10,12 +10,14 @@ import Learn from './Component/Learn';
 import Project from './Component/Project';
 import Intro from './Component/Intro';
 import Ourteam from './Component/Ourteam';
+import Notfound from './Component/Notfound';
 
 function App() {
   return (
     <div className="App">
       <Header />
       <Routes>
+        <Route path='*' element={<Notfound />} />
         <Route path='/' element={<Detail />} />
         <Route path='/About' element={<About />} />
         <Route path='/Services' element={<Services />} />
